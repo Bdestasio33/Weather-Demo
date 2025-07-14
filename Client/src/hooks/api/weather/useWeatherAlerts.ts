@@ -15,7 +15,7 @@ interface UseWeatherAlertsOptions {
 }
 
 // Convert demo alerts to match the API type structure
-const getMockWeatherAlerts = (location: { city: string; state?: string; country?: string }): WeatherAlert[] => {
+const getMockWeatherAlerts = (): WeatherAlert[] => {
   return demoAlerts.map(alert => ({
     type: alert.title,
     message: alert.description,
@@ -39,7 +39,7 @@ export function useWeatherAlerts(options: UseWeatherAlertsOptions = {}) {
     queryFn: async (): Promise<WeatherAlert[]> => {
       // Simulate API delay for realistic demo experience
       await new Promise(resolve => setTimeout(resolve, 400));
-      return getMockWeatherAlerts(location);
+      return getMockWeatherAlerts();
     },
     enabled: options.enabled !== false,
     staleTime: options.staleTime || 10 * 60 * 1000, // 10 minutes default (alerts are time-sensitive)
@@ -65,7 +65,7 @@ export function useWeatherAlertsForLocation(
     queryFn: async (): Promise<WeatherAlert[]> => {
       // Simulate API delay for realistic demo experience
       await new Promise(resolve => setTimeout(resolve, 400));
-      return getMockWeatherAlerts(location);
+      return getMockWeatherAlerts();
     },
     enabled: options.enabled !== false,
     staleTime: options.staleTime || 10 * 60 * 1000,

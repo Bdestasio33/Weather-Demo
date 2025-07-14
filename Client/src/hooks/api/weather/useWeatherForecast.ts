@@ -15,7 +15,7 @@ interface UseWeatherForecastOptions {
 }
 
 // Convert demo forecast to match the API type structure
-const getMockWeatherForecast = (location: { city: string; state?: string; country?: string }): WeatherForecast[] => {
+const getMockWeatherForecast = (): WeatherForecast[] => {
   return demoForecast.map(day => ({
     date: day.date,
     temperatureC: Math.round((day.high - 32) * 5/9), // Convert F to C
@@ -38,7 +38,7 @@ export function useWeatherForecast(options: UseWeatherForecastOptions = {}) {
     queryFn: async (): Promise<WeatherForecast[]> => {
       // Simulate API delay for realistic demo experience
       await new Promise(resolve => setTimeout(resolve, 600));
-      return getMockWeatherForecast(location);
+      return getMockWeatherForecast();
     },
     enabled: options.enabled !== false,
     staleTime: options.staleTime || 30 * 60 * 1000, // 30 minutes default (forecast changes less frequently)
@@ -64,7 +64,7 @@ export function useWeatherForecastForLocation(
     queryFn: async (): Promise<WeatherForecast[]> => {
       // Simulate API delay for realistic demo experience
       await new Promise(resolve => setTimeout(resolve, 600));
-      return getMockWeatherForecast(location);
+      return getMockWeatherForecast();
     },
     enabled: options.enabled !== false,
     staleTime: options.staleTime || 30 * 60 * 1000,

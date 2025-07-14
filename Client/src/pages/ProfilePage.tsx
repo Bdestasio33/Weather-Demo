@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Box,
   Card,
@@ -10,14 +10,12 @@ import {
   FormControl,
   Button,
   Divider,
-  Alert,
   Stack,
   Tooltip,
 } from "@mui/material";
 import {
   Person as PersonIcon,
   Thermostat as ThermostatIcon,
-  Save as SaveIcon,
   Download as DownloadIcon,
   Upload as UploadIcon,
   Clear as ClearIcon,
@@ -30,7 +28,6 @@ import { toast } from "react-toastify";
 export default function ProfilePage() {
   const userContext = useUser();
   const { actions: dashboardActions } = useDashboard();
-  const [showSaveConfirmation, setShowSaveConfirmation] = useState(false);
 
   const handleTemperatureUnitChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -164,18 +161,6 @@ export default function ProfilePage() {
           </Typography>
         </Box>
       </Box>
-
-      {/* Success Messages */}
-      {showSaveConfirmation && (
-        <Alert
-          severity="success"
-          sx={styles.successAlert}
-          icon={<SaveIcon />}
-          data-testid="save-success-alert"
-        >
-          Preferences saved to browser storage!
-        </Alert>
-      )}
 
       {/* Profile Settings */}
       <Card sx={styles.card} data-testid="profile-settings-card">

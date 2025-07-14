@@ -1,4 +1,4 @@
-import type { WidgetConfig, WidgetType } from "../types/dashboard";
+import type { WidgetConfig } from "../types/dashboard";
 
 /**
  * Widget configurations defining available widgets, their properties, and constraints

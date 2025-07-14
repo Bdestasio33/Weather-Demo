@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import { weatherService } from '../../../services/weatherService';
 import { queryKeys } from '../../../lib/queryClient';
 import { useUser } from '../../../contexts/UserContext';
 import type { CurrentWeather, WeatherForecast, WeatherAlert } from '../../../types/weather';
+import { demoForecast, demoAlerts, demoWeatherMetrics } from '../../../demo/weatherData';
 
 interface WeatherData {
   current: CurrentWeather;
@@ -20,6 +20,37 @@ interface UseWeatherDataOptions {
   staleTime?: number;
 }
 
+// Mock comprehensive weather data for demo
+const getMockWeatherData = (location: { city: string; state?: string; country?: string }): WeatherData => {
+  return {
+    current: {
+      location: `${location.city}, ${location.state || 'NY'}`,
+      temperature: 24, // Celsius
+      temperatureF: 75, // Fahrenheit
+      condition: 'Cloudy',
+      summary: 'Partly cloudy with a chance of showers',
+      humidity: demoWeatherMetrics.humidity,
+      windSpeed: demoWeatherMetrics.windSpeed,
+      timestamp: new Date().toISOString(),
+    },
+    forecast: demoForecast.map(day => ({
+      date: day.date,
+      temperatureC: Math.round((day.high - 32) * 5/9), // Convert F to C
+      temperatureF: day.high,
+      summary: day.condition,
+      condition: day.condition,
+    })),
+    alerts: demoAlerts.map(alert => ({
+      type: alert.title,
+      message: alert.description,
+      severity: alert.severity === 'moderate' ? 2 : 
+                alert.severity === 'severe' ? 3 : 
+                alert.severity === 'extreme' ? 4 : 1,
+      expiresAt: alert.endTime,
+    })),
+  };
+};
+
 export function useWeatherData(options: UseWeatherDataOptions = {}) {
   const { preferences } = useUser();
   
@@ -33,12 +64,9 @@ export function useWeatherData(options: UseWeatherDataOptions = {}) {
   return useQuery({
     queryKey,
     queryFn: async (): Promise<WeatherData> => {
-      // Use the existing getWeatherForLocation method that fetches all data efficiently
-      return await weatherService.getWeatherForLocation(
-        location.city, 
-        location.state, 
-        location.country || 'US'
-      );
+      // Simulate API delay for realistic demo experience
+      await new Promise(resolve => setTimeout(resolve, 700));
+      return getMockWeatherData(location);
     },
     enabled: options.enabled !== false,
     staleTime: options.staleTime || 5 * 60 * 1000, // 5 minutes default
@@ -59,17 +87,17 @@ export function useWeatherDataForLocation(
 ) {
   const location = { city, state, country };
   const queryKey = [...queryKeys.weather.all, 'comprehensive', location] as const;
-  
+
   return useQuery({
     queryKey,
     queryFn: async (): Promise<WeatherData> => {
-      return await weatherService.getWeatherForLocation(city, state, country);
+      // Simulate API delay for realistic demo experience
+      await new Promise(resolve => setTimeout(resolve, 700));
+      return getMockWeatherData(location);
     },
-    enabled: options.enabled !== false && !!city,
+    enabled: options.enabled !== false,
     staleTime: options.staleTime || 5 * 60 * 1000,
     gcTime: 30 * 60 * 1000,
-    refetchInterval: 5 * 60 * 1000,
-    refetchIntervalInBackground: false,
     retry: 3,
     retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
   });

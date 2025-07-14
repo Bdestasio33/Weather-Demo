@@ -2,6 +2,8 @@
 
 A modern, responsive weather dashboard built with React, TypeScript, and Material-UI. This application provides real-time weather information with a customizable, drag-and-drop interface.
 
+**🎯 Demo Mode:** This application currently uses comprehensive mock data to provide a fully functional demo experience without requiring API keys or backend services.
+
 ## 🌟 Features
 
 - **Real-time Weather Data**: Current conditions, 5-day forecast, and weather alerts
@@ -11,6 +13,7 @@ A modern, responsive weather dashboard built with React, TypeScript, and Materia
 - **Location Search**: Find weather for any city worldwide
 - **User Preferences**: Save your preferred temperature units and locations
 - **Comprehensive Testing**: 120+ tests with excellent coverage
+- **Demo Mode**: Uses realistic mock data for seamless demonstration
 
 ## 🚀 Live Demo
 
@@ -51,6 +54,12 @@ A modern, responsive weather dashboard built with React, TypeScript, and Materia
 - 58.39% overall coverage
 - 92.66% component coverage
 
+**Demo Data:**
+
+- Comprehensive mock weather data
+- Realistic API simulation with loading states
+- No external dependencies or API keys required
+
 ## 📦 Installation
 
 1. **Clone the repository:**
@@ -67,21 +76,16 @@ A modern, responsive weather dashboard built with React, TypeScript, and Materia
    yarn install
    ```
 
-3. **Set up environment variables:**
-
-   ```bash
-   cp .env.example .env.local
-   # Add your weather API key
-   ```
-
-4. **Start the development server:**
+3. **Start the development server:**
 
    ```bash
    yarn dev
    ```
 
-5. **Open your browser:**
+4. **Open your browser:**
    Navigate to `http://localhost:5173`
+
+**Note:** No environment variables or API keys are required for the demo mode.
 
 ## 🧪 Testing
 
@@ -119,13 +123,13 @@ Weather-Demo/
 │   ├── src/
 │   │   ├── components/     # Reusable UI components
 │   │   ├── pages/          # Page components
-│   │   ├── services/       # API services
-│   │   ├── hooks/          # Custom React hooks
+│   │   ├── hooks/          # Custom React hooks (with mock data)
+│   │   ├── demo/           # Mock data for demonstration
 │   │   ├── utils/          # Utility functions
 │   │   └── test/           # Test utilities and setup
 │   ├── public/             # Static assets
 │   └── package.json
-├── Server/                 # Backend API (if applicable)
+├── Server/                 # Backend API (C# .NET - not deployed)
 └── README.md
 ```
 
@@ -138,9 +142,9 @@ Weather-Demo/
 - Responsive grid layout
 - Widget visibility toggles
 
-### Weather Data
+### Weather Data (Demo Mode)
 
-- Current weather conditions
+- Current weather conditions with realistic data
 - 5-day weather forecast
 - Weather alerts and warnings
 - Temperature trend charts
@@ -178,6 +182,27 @@ This app is deployed using GitHub Pages:
    yarn build
    # Deploy dist folder to gh-pages branch
    ```
+
+## 💡 Architecture Notes
+
+### Frontend Architecture
+
+- **State Management**: React Query for server state, Context API for global state
+- **Component Design**: Modular, reusable components with Material-UI
+- **TypeScript**: Full type safety throughout the application
+- **Testing**: Comprehensive test suite with excellent coverage
+
+### Backend Architecture (Available but not deployed)
+
+- **C# .NET API**: Full REST API with weather data integration
+- **Clean Architecture**: Separation of concerns with proper layering
+- **External APIs**: Integration with OpenWeatherMap API
+
+### Demo Implementation
+
+- **Mock Data**: Realistic weather data for demonstration
+- **API Simulation**: Includes loading states and error handling
+- **No Dependencies**: Runs without external APIs or services
 
 ## 🤝 Contributing
 

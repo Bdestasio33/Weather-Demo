@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import { weatherService } from '../../../services/weatherService';
 import { queryKeys } from '../../../lib/queryClient';
 import { useUser } from '../../../contexts/UserContext';
 import type { WeatherForecast } from '../../../types/weather';
+import { demoForecast } from '../../../demo/weatherData';
 
 interface UseWeatherForecastOptions {
   location?: {
@@ -13,6 +13,17 @@ interface UseWeatherForecastOptions {
   enabled?: boolean;
   staleTime?: number;
 }
+
+// Convert demo forecast to match the API type structure
+const getMockWeatherForecast = (location: { city: string; state?: string; country?: string }): WeatherForecast[] => {
+  return demoForecast.map(day => ({
+    date: day.date,
+    temperatureC: Math.round((day.high - 32) * 5/9), // Convert F to C
+    temperatureF: day.high,
+    summary: day.condition,
+    condition: day.condition,
+  }));
+};
 
 export function useWeatherForecast(options: UseWeatherForecastOptions = {}) {
   const { preferences } = useUser();
@@ -25,7 +36,9 @@ export function useWeatherForecast(options: UseWeatherForecastOptions = {}) {
   return useQuery({
     queryKey: queryKeys.weather.forecast(location),
     queryFn: async (): Promise<WeatherForecast[]> => {
-      return await weatherService.getWeatherForecast(location);
+      // Simulate API delay for realistic demo experience
+      await new Promise(resolve => setTimeout(resolve, 600));
+      return getMockWeatherForecast(location);
     },
     enabled: options.enabled !== false,
     staleTime: options.staleTime || 30 * 60 * 1000, // 30 minutes default (forecast changes less frequently)
@@ -49,13 +62,13 @@ export function useWeatherForecastForLocation(
   return useQuery({
     queryKey: queryKeys.weather.forecast(location),
     queryFn: async (): Promise<WeatherForecast[]> => {
-      return await weatherService.getWeatherForecast(location);
+      // Simulate API delay for realistic demo experience
+      await new Promise(resolve => setTimeout(resolve, 600));
+      return getMockWeatherForecast(location);
     },
-    enabled: options.enabled !== false && !!city,
+    enabled: options.enabled !== false,
     staleTime: options.staleTime || 30 * 60 * 1000,
     gcTime: 60 * 60 * 1000,
-    refetchInterval: 30 * 60 * 1000,
-    refetchIntervalInBackground: false,
     retry: 3,
     retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
   });

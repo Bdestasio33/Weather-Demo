@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import { weatherService } from '../../../services/weatherService';
 import { queryKeys } from '../../../lib/queryClient';
 import { useUser } from '../../../contexts/UserContext';
 import type { WeatherAlert } from '../../../types/weather';
+import { demoAlerts } from '../../../demo/weatherData';
 
 interface UseWeatherAlertsOptions {
   location?: {
@@ -13,6 +13,18 @@ interface UseWeatherAlertsOptions {
   enabled?: boolean;
   staleTime?: number;
 }
+
+// Convert demo alerts to match the API type structure
+const getMockWeatherAlerts = (location: { city: string; state?: string; country?: string }): WeatherAlert[] => {
+  return demoAlerts.map(alert => ({
+    type: alert.title,
+    message: alert.description,
+    severity: alert.severity === 'moderate' ? 2 : 
+              alert.severity === 'severe' ? 3 : 
+              alert.severity === 'extreme' ? 4 : 1,
+    expiresAt: alert.endTime,
+  }));
+};
 
 export function useWeatherAlerts(options: UseWeatherAlertsOptions = {}) {
   const { preferences } = useUser();
@@ -25,7 +37,9 @@ export function useWeatherAlerts(options: UseWeatherAlertsOptions = {}) {
   return useQuery({
     queryKey: queryKeys.weather.alerts(location),
     queryFn: async (): Promise<WeatherAlert[]> => {
-      return await weatherService.getWeatherAlerts(location);
+      // Simulate API delay for realistic demo experience
+      await new Promise(resolve => setTimeout(resolve, 400));
+      return getMockWeatherAlerts(location);
     },
     enabled: options.enabled !== false,
     staleTime: options.staleTime || 10 * 60 * 1000, // 10 minutes default (alerts are time-sensitive)
@@ -49,13 +63,13 @@ export function useWeatherAlertsForLocation(
   return useQuery({
     queryKey: queryKeys.weather.alerts(location),
     queryFn: async (): Promise<WeatherAlert[]> => {
-      return await weatherService.getWeatherAlerts(location);
+      // Simulate API delay for realistic demo experience
+      await new Promise(resolve => setTimeout(resolve, 400));
+      return getMockWeatherAlerts(location);
     },
-    enabled: options.enabled !== false && !!city,
+    enabled: options.enabled !== false,
     staleTime: options.staleTime || 10 * 60 * 1000,
     gcTime: 30 * 60 * 1000,
-    refetchInterval: 10 * 60 * 1000,
-    refetchIntervalInBackground: false,
     retry: 3,
     retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
   });

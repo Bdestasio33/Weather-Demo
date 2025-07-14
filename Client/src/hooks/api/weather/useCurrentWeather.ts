@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import { weatherService } from '../../../services/weatherService';
 import { queryKeys } from '../../../lib/queryClient';
 import { useUser } from '../../../contexts/UserContext';
 import type { CurrentWeather } from '../../../types/weather';
+import { demoWeatherMetrics } from '../../../demo/weatherData';
 
 interface UseCurrentWeatherOptions {
   location?: {
@@ -13,6 +13,20 @@ interface UseCurrentWeatherOptions {
   enabled?: boolean;
   staleTime?: number;
 }
+
+// Mock current weather data for demo
+const getMockCurrentWeather = (location: { city: string; state?: string; country?: string }): CurrentWeather => {
+  return {
+    location: `${location.city}, ${location.state || 'NY'}`,
+    temperature: 24, // Celsius
+    temperatureF: 75, // Fahrenheit
+    condition: 'Cloudy',
+    summary: 'Partly cloudy with a chance of showers',
+    humidity: demoWeatherMetrics.humidity,
+    windSpeed: demoWeatherMetrics.windSpeed,
+    timestamp: new Date().toISOString(),
+  };
+};
 
 export function useCurrentWeather(options: UseCurrentWeatherOptions = {}) {
   const { preferences } = useUser();
@@ -25,7 +39,9 @@ export function useCurrentWeather(options: UseCurrentWeatherOptions = {}) {
   return useQuery({
     queryKey: queryKeys.weather.current(location),
     queryFn: async (): Promise<CurrentWeather> => {
-      return await weatherService.getCurrentWeather(location);
+      // Simulate API delay for realistic demo experience
+      await new Promise(resolve => setTimeout(resolve, 500));
+      return getMockCurrentWeather(location);
     },
     enabled: options.enabled !== false,
     staleTime: options.staleTime || 5 * 60 * 1000, // 5 minutes default
@@ -49,13 +65,13 @@ export function useCurrentWeatherForLocation(
   return useQuery({
     queryKey: queryKeys.weather.current(location),
     queryFn: async (): Promise<CurrentWeather> => {
-      return await weatherService.getCurrentWeather(location);
+      // Simulate API delay for realistic demo experience
+      await new Promise(resolve => setTimeout(resolve, 500));
+      return getMockCurrentWeather(location);
     },
-    enabled: options.enabled !== false && !!city,
+    enabled: options.enabled !== false,
     staleTime: options.staleTime || 5 * 60 * 1000,
     gcTime: 30 * 60 * 1000,
-    refetchInterval: 5 * 60 * 1000,
-    refetchIntervalInBackground: false,
     retry: 3,
     retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
   });

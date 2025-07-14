@@ -244,8 +244,14 @@ const styles = {
     fontSize: "var(--font-size-xl)",
   },
   titleIcon: {
-    fontSize: "1.5rem",
+    fontSize: "1.8rem",
     color: "var(--color-primary-500)",
+    filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))",
+    transition: "var(--transition-button)",
+    "&:hover": {
+      color: "var(--color-primary-400)",
+      transform: "scale(1.05)",
+    },
   },
   locationButtonContainer: {
     display: { xs: "none", sm: "flex" },

@@ -21,7 +21,7 @@ function App() {
         <DashboardProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Router>
+            <Router basename="/Weather-Demo">
               <Layout>
                 <Routes>
                   <Route path="/" element={<DashboardPage />} />

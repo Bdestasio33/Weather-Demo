@@ -1,0 +1,103 @@
+@Weather_App_Demo_HostAddress = http://localhost:5283
+
+### Test OpenWeatherMap One Call API 3.0 Configuration
+GET {{Weather_App_Demo_HostAddress}}/api/weather/test
+Accept: application/json
+
+###
+
+### Get current weather for New Castle, PA
+GET {{Weather_App_Demo_HostAddress}}/api/weather/current?city=New Castle&state=Pennsylvania&country=US
+Accept: application/json
+
+###
+
+### Get current weather for Los Angeles, CA
+GET {{Weather_App_Demo_HostAddress}}/api/weather/current?city=Los Angeles&state=California&country=US
+Accept: application/json
+
+###
+
+### Get current weather for Miami, FL
+GET {{Weather_App_Demo_HostAddress}}/api/weather/current?city=Miami&state=Florida&country=US
+Accept: application/json
+
+###
+
+### Get current weather for London, UK
+GET {{Weather_App_Demo_HostAddress}}/api/weather/current?city=London&country=GB
+Accept: application/json
+
+###
+
+### Get current weather for New York, NY (no state specified)
+GET {{Weather_App_Demo_HostAddress}}/api/weather/current?city=New York&country=US
+Accept: application/json
+
+###
+
+### Get weather forecast for New Castle, PA
+GET {{Weather_App_Demo_HostAddress}}/api/weather/forecast?city=New Castle&state=Pennsylvania&country=US
+Accept: application/json
+
+###
+
+### Get weather forecast for Seattle, WA
+GET {{Weather_App_Demo_HostAddress}}/api/weather/forecast?city=Seattle&state=Washington&country=US
+Accept: application/json
+
+###
+
+### Get weather forecast for Chicago, IL
+GET {{Weather_App_Demo_HostAddress}}/api/weather/forecast?city=Chicago&state=Illinois&country=US
+Accept: application/json
+
+###
+
+### Get weather forecast for Toronto, Canada
+GET {{Weather_App_Demo_HostAddress}}/api/weather/forecast?city=Toronto&state=Ontario&country=CA
+Accept: application/json
+
+###
+
+### Get weather forecast for Tokyo, Japan
+GET {{Weather_App_Demo_HostAddress}}/api/weather/forecast?city=Tokyo&country=JP
+Accept: application/json
+
+###
+
+### Get weather alerts for New Castle, PA
+GET {{Weather_App_Demo_HostAddress}}/api/weather/alerts?city=New Castle&state=Pennsylvania&country=US
+Accept: application/json
+
+###
+
+### Get weather alerts for Phoenix, AZ
+GET {{Weather_App_Demo_HostAddress}}/api/weather/alerts?city=Phoenix&state=Arizona&country=US
+Accept: application/json
+
+###
+
+### Get weather alerts for Denver, CO
+GET {{Weather_App_Demo_HostAddress}}/api/weather/alerts?city=Denver&state=Colorado&country=US
+Accept: application/json
+
+###
+
+### Get weather alerts for London, UK
+GET {{Weather_App_Demo_HostAddress}}/api/weather/alerts?city=London&country=GB
+Accept: application/json
+
+###
+
+### Test missing city parameter (should return 400 Bad Request)
+GET {{Weather_App_Demo_HostAddress}}/api/weather/current
+Accept: application/json
+
+###
+
+### Get API root page
+GET {{Weather_App_Demo_HostAddress}}/
+Accept: text/html
+
+###

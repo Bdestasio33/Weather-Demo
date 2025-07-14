@@ -1,0 +1,44 @@
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/appsettings.Development.json
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/appsettings.json
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/Weather App Demo
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/Weather App Demo.deps.json
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/Weather App Demo.runtimeconfig.json
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/Weather App Demo.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/Weather App Demo.pdb
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/Weather App Demo.csproj.AssemblyReference.cache
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/Weather App Demo.GeneratedMSBuildEditorConfig.editorconfig
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/Weather App Demo.AssemblyInfoInputs.cache
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/Weather App Demo.AssemblyInfo.cs
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/Weather App Demo.csproj.CoreCompileInputs.cache
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/Weather App Demo.MvcApplicationPartsAssemblyInfo.cs
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/Weather App Demo.MvcApplicationPartsAssemblyInfo.cache
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/staticwebassets.build.json
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/staticwebassets.development.json
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/staticwebassets/msbuild.Weather App Demo.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/staticwebassets/msbuild.build.Weather App Demo.props
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Weather App Demo.props
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Weather App Demo.props
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/staticwebassets.pack.json
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/scopedcss/bundle/Weather App Demo.styles.css
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/Weather .E184F94C.Up2Date
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/Weather App Demo.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/refint/Weather App Demo.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/Weather App Demo.pdb
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/Weather App Demo.genruntimeconfig.cache
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/obj/Debug/net8.0/ref/Weather App Demo.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/Microsoft.Extensions.Caching.Abstractions.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/System.Diagnostics.DiagnosticSource.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/System.IO.Pipelines.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/System.Text.Encodings.Web.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/System.Text.Json.dll
+/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll

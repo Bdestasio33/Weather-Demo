@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "dgSpecHash": "mWvMxghV2ZA=",
+  "success": true,
+  "projectFilePath": "/Users/blakedestasio/Code/demos/Weather Demo/Server/Weather App Demo/Weather App Demo.csproj",
+  "expectedPackageFiles": [
+    "/Users/blakedestasio/.nuget/packages/microsoft.aspnetcore.openapi/8.0.8/microsoft.aspnetcore.openapi.8.0.8.nupkg.sha512",
+    "/Users/blakedestasio/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/Users/blakedestasio/.nuget/packages/microsoft.extensions.caching.abstractions/9.0.7/microsoft.extensions.caching.abstractions.9.0.7.nupkg.sha512",
+    "/Users/blakedestasio/.nuget/packages/microsoft.extensions.caching.memory/9.0.7/microsoft.extensions.caching.memory.9.0.7.nupkg.sha512",
+    "/Users/blakedestasio/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.7/microsoft.extensions.dependencyinjection.abstractions.9.0.7.nupkg.sha512",
+    "/Users/blakedestasio/.nuget/packages/microsoft.extensions.logging.abstractions/9.0.7/microsoft.extensions.logging.abstractions.9.0.7.nupkg.sha512",
+    "/Users/blakedestasio/.nuget/packages/microsoft.extensions.options/9.0.7/microsoft.extensions.options.9.0.7.nupkg.sha512",
+    "/Users/blakedestasio/.nuget/packages/microsoft.extensions.primitives/9.0.7/microsoft.extensions.primitives.9.0.7.nupkg.sha512",
+    "/Users/blakedestasio/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/Users/blakedestasio/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "/Users/blakedestasio/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "/Users/blakedestasio/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "/Users/blakedestasio/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
+    "/Users/blakedestasio/.nuget/packages/system.diagnostics.diagnosticsource/9.0.7/system.diagnostics.diagnosticsource.9.0.7.nupkg.sha512",
+    "/Users/blakedestasio/.nuget/packages/system.io.pipelines/9.0.7/system.io.pipelines.9.0.7.nupkg.sha512",
+    "/Users/blakedestasio/.nuget/packages/system.text.encodings.web/9.0.7/system.text.encodings.web.9.0.7.nupkg.sha512",
+    "/Users/blakedestasio/.nuget/packages/system.text.json/9.0.7/system.text.json.9.0.7.nupkg.sha512"
+  ],
+  "logs": []
+}

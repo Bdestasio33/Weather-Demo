@@ -98,11 +98,9 @@ describe("DragDropDashboard - Empty State", () => {
 
     // Main structure should still be present
     expect(screen.getByTestId("drag-drop-dashboard")).toBeInTheDocument();
-    expect(screen.getByTestId("sidebar")).toBeInTheDocument();
+    expect(screen.getByTestId("desktop-sidebar")).toBeInTheDocument();
     expect(screen.getByTestId("dashboard-area")).toBeInTheDocument();
     expect(screen.getByTestId("dashboard-header")).toBeInTheDocument();
-
-    // Should have widget library in sidebar
-    expect(screen.getByTestId("widget-library")).toBeInTheDocument();
+    expect(screen.getByTestId("dashboard-content")).toBeInTheDocument();
   });
 });

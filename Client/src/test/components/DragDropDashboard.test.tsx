@@ -95,9 +95,10 @@ describe("DragDropDashboard", () => {
     renderWithProviders(<DragDropDashboard />);
 
     expect(screen.getByTestId("drag-drop-dashboard")).toBeInTheDocument();
-    expect(screen.getByTestId("sidebar")).toBeInTheDocument();
+    expect(screen.getByTestId("desktop-sidebar")).toBeInTheDocument();
     expect(screen.getByTestId("dashboard-area")).toBeInTheDocument();
     expect(screen.getByTestId("dashboard-header")).toBeInTheDocument();
+    expect(screen.getByTestId("dashboard-content")).toBeInTheDocument();
   });
 
   it("should display dashboard header with correct content", () => {

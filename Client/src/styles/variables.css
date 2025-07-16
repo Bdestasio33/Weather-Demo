@@ -289,9 +289,305 @@
 /* ========== RESPONSIVE BREAKPOINTS ========== */
 
 :root {
+  --breakpoint-xs: 480px;
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
+
+  /* Mobile-specific sizing */
+  --mobile-sidebar-width: 80vw;
+  --mobile-header-height: 60px;
+  --mobile-content-padding: var(--spacing-lg);
+  --mobile-widget-gap: var(--spacing-sm);
+  
+  /* Very small mobile sizing */
+  --tiny-mobile-sidebar-width: 90vw;
+  --tiny-mobile-content-padding: var(--spacing-md);
+  --tiny-mobile-widget-gap: var(--spacing-xs);
+  --tiny-mobile-min-widget-height: 180px;
+  
+  /* Touch targets */
+  --touch-target-min: 44px;
+  --touch-target-preferred: 48px;
+  
+  /* Mobile typography scales */
+  --font-size-mobile-xs: 0.6875rem;  /* 11px */
+  --font-size-mobile-sm: 0.75rem;    /* 12px */
+  --font-size-mobile-base: 0.875rem; /* 14px */
+  --font-size-mobile-lg: 1rem;       /* 16px */
+  --font-size-mobile-xl: 1.125rem;   /* 18px */
+  --font-size-mobile-2xl: 1.25rem;   /* 20px */
+  --font-size-mobile-3xl: 1.5rem;    /* 24px */
+  
+  /* Tiny mobile typography scales */
+  --font-size-tiny-xs: 0.625rem;     /* 10px */
+  --font-size-tiny-sm: 0.6875rem;    /* 11px */
+  --font-size-tiny-base: 0.75rem;    /* 12px */
+  --font-size-tiny-lg: 0.875rem;     /* 14px */
+  --font-size-tiny-xl: 1rem;         /* 16px */
+  --font-size-tiny-2xl: 1.125rem;    /* 18px */
+  --font-size-tiny-3xl: 1.25rem;     /* 20px */
+  
+  /* Mobile-specific spacing */
+  --mobile-spacing-xs: 0.125rem;     /* 2px */
+  --mobile-spacing-sm: 0.25rem;      /* 4px */
+  --mobile-spacing-md: 0.5rem;       /* 8px */
+  --mobile-spacing-lg: 0.75rem;      /* 12px */
+  --mobile-spacing-xl: 1rem;         /* 16px */
+  --mobile-spacing-2xl: 1.25rem;     /* 20px */
+  
+  /* Tiny mobile-specific spacing */
+  --tiny-spacing-xs: 0.125rem;       /* 2px */
+  --tiny-spacing-sm: 0.25rem;        /* 4px */
+  --tiny-spacing-md: 0.375rem;       /* 6px */
+  --tiny-spacing-lg: 0.5rem;         /* 8px */
+  --tiny-spacing-xl: 0.75rem;        /* 12px */
+  --tiny-spacing-2xl: 1rem;          /* 16px */
+  
+  /* Mobile-specific shadows */
+  --shadow-mobile-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-mobile-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-mobile-lg: 0 4px 8px rgba(0, 0, 0, 0.15);
+  
+  /* Mobile-specific border radius */
+  --radius-mobile-sm: 0.25rem;       /* 4px */
+  --radius-mobile-md: 0.375rem;      /* 6px */
+  --radius-mobile-lg: 0.5rem;        /* 8px */
+  
+  /* Mobile-specific transitions */
+  --transition-mobile-fast: 100ms ease;
+  --transition-mobile-normal: 150ms ease;
+  --transition-mobile-slow: 200ms ease;
+  
+  /* Mobile-specific backdrop filters */
+  --backdrop-blur-mobile-sm: blur(3px);
+  --backdrop-blur-mobile-md: blur(8px);
+  --backdrop-blur-mobile-lg: blur(12px);
+} 
+
+/* ========== VERY SMALL MOBILE OVERRIDES ========== */
+
+@media (max-width: 480px) {
+  :root {
+    /* Override dashboard spacing for tiny screens */
+    --dashboard-content-padding: var(--tiny-mobile-content-padding);
+    --dashboard-grid-gap: var(--tiny-mobile-widget-gap);
+    --dashboard-sidebar-width: var(--tiny-mobile-sidebar-width);
+    
+    /* Adjust font sizes for tiny screens */
+    --font-size-xs: var(--font-size-tiny-xs);
+    --font-size-sm: var(--font-size-tiny-sm);
+    --font-size-base: var(--font-size-tiny-base);
+    --font-size-lg: var(--font-size-tiny-lg);
+    --font-size-xl: var(--font-size-tiny-xl);
+    --font-size-2xl: var(--font-size-tiny-2xl);
+    --font-size-3xl: var(--font-size-tiny-3xl);
+    
+    /* Adjust spacing for tiny screens */
+    --spacing-xs: var(--tiny-spacing-xs);
+    --spacing-sm: var(--tiny-spacing-sm);
+    --spacing-md: var(--tiny-spacing-md);
+    --spacing-lg: var(--tiny-spacing-lg);
+    --spacing-xl: var(--tiny-spacing-xl);
+    --spacing-2xl: var(--tiny-spacing-2xl);
+    
+    /* Widget sizing for tiny screens */
+    --widget-sm-height: var(--tiny-mobile-min-widget-height);
+    --widget-md-height: var(--tiny-mobile-min-widget-height);
+    --widget-lg-height: var(--tiny-mobile-min-widget-height);
+    --widget-xl-height: var(--tiny-mobile-min-widget-height);
+  }
+}
+
+/* ========== MOBILE-SPECIFIC MEDIA QUERIES ========== */
+
+@media (max-width: 767px) {
+  :root {
+    /* Override dashboard spacing on mobile */
+    --dashboard-content-padding: var(--mobile-content-padding);
+    --dashboard-grid-gap: var(--mobile-widget-gap);
+    
+    /* Adjust font sizes for mobile */
+    --font-size-xs: var(--font-size-mobile-xs);
+    --font-size-sm: var(--font-size-mobile-sm);
+    --font-size-base: var(--font-size-mobile-base);
+    --font-size-lg: var(--font-size-mobile-lg);
+    --font-size-xl: var(--font-size-mobile-xl);
+    --font-size-2xl: var(--font-size-mobile-2xl);
+    --font-size-3xl: var(--font-size-mobile-3xl);
+    
+    /* Adjust spacing for mobile */
+    --spacing-xs: var(--mobile-spacing-xs);
+    --spacing-sm: var(--mobile-spacing-sm);
+    --spacing-md: var(--mobile-spacing-md);
+    --spacing-lg: var(--mobile-spacing-lg);
+    --spacing-xl: var(--mobile-spacing-xl);
+    --spacing-2xl: var(--mobile-spacing-2xl);
+    
+    /* Adjust shadows for mobile */
+    --shadow-sm: var(--shadow-mobile-sm);
+    --shadow-md: var(--shadow-mobile-md);
+    --shadow-lg: var(--shadow-mobile-lg);
+    
+    /* Adjust border radius for mobile */
+    --radius-sm: var(--radius-mobile-sm);
+    --radius-md: var(--radius-mobile-md);
+    --radius-lg: var(--radius-mobile-lg);
+    
+    /* Adjust transitions for mobile */
+    --transition-fast: var(--transition-mobile-fast);
+    --transition-normal: var(--transition-mobile-normal);
+    --transition-slow: var(--transition-mobile-slow);
+    
+    /* Adjust backdrop filters for mobile */
+    --backdrop-blur-sm: var(--backdrop-blur-mobile-sm);
+    --backdrop-blur-md: var(--backdrop-blur-mobile-md);
+    --backdrop-blur-lg: var(--backdrop-blur-mobile-lg);
+  }
+}
+
+/* ========== MOBILE-SPECIFIC UTILITY CLASSES ========== */
+
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: block;
+}
+
+.tiny-mobile-only {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .tiny-mobile-only {
+    display: block;
+  }
+  
+  .mobile-only {
+    display: block;
+  }
+  
+  .desktop-only {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile-only {
+    display: block;
+  }
+  
+  .desktop-only {
+    display: none;
+  }
+}
+
+/* ========== MOBILE TOUCH IMPROVEMENTS ========== */
+
+@media (max-width: 767px) {
+  .touch-target {
+    min-height: var(--touch-target-min);
+    min-width: var(--touch-target-min);
+  }
+  
+  .touch-target-preferred {
+    min-height: var(--touch-target-preferred);
+    min-width: var(--touch-target-preferred);
+  }
+  
+  /* Disable hover effects on mobile */
+  .no-mobile-hover:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Mobile-specific active states */
+  .mobile-active:active {
+    transform: scale(0.98);
+    opacity: 0.8;
+  }
+}
+
+/* ========== RESPONSIVE TYPOGRAPHY ========== */
+
+@media (max-width: 480px) {
+  .responsive-text-xl {
+    font-size: var(--font-size-tiny-xl);
+  }
+  
+  .responsive-text-lg {
+    font-size: var(--font-size-tiny-lg);
+  }
+  
+  .responsive-text-base {
+    font-size: var(--font-size-tiny-base);
+  }
+  
+  .responsive-text-sm {
+    font-size: var(--font-size-tiny-sm);
+  }
+}
+
+@media (max-width: 640px) {
+  .responsive-text-xl {
+    font-size: var(--font-size-mobile-lg);
+  }
+  
+  .responsive-text-lg {
+    font-size: var(--font-size-mobile-base);
+  }
+  
+  .responsive-text-base {
+    font-size: var(--font-size-mobile-sm);
+  }
+  
+  .responsive-text-sm {
+    font-size: var(--font-size-mobile-xs);
+  }
+}
+
+/* ========== MOBILE-SPECIFIC SCROLLBAR STYLES ========== */
+
+@media (max-width: 767px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg-tertiary);
+    border-radius: 2px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary-500);
+    border-radius: 2px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-600);
+  }
+}
+
+/* ========== MOBILE-SPECIFIC SAFE AREA SUPPORT ========== */
+
+@supports (padding: max(0px)) {
+  .safe-area-inset-top {
+    padding-top: max(var(--spacing-lg), env(safe-area-inset-top));
+  }
+  
+  .safe-area-inset-bottom {
+    padding-bottom: max(var(--spacing-lg), env(safe-area-inset-bottom));
+  }
+  
+  .safe-area-inset-left {
+    padding-left: max(var(--spacing-lg), env(safe-area-inset-left));
+  }
+  
+  .safe-area-inset-right {
+    padding-right: max(var(--spacing-lg), env(safe-area-inset-right));
+  }
 } 

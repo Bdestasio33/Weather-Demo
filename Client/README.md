@@ -1,6 +1,15 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite Weather Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern weather dashboard built with React, TypeScript, and Vite, featuring drag-and-drop widgets, responsive design, and comprehensive weather data visualization.
+
+## Features
+
+- **Interactive Weather Dashboard** - Drag-and-drop widget customization
+- **Responsive Design** - Mobile-first approach with adaptive layouts
+- **Real-time Weather Data** - Current conditions, forecasts, and alerts
+- **Customizable Widgets** - Temperature charts, wind compass, UV index, and more
+- **User Preferences** - Persistent settings and temperature unit selection
+- **Accessibility** - Full WCAG compliance with proper ARIA attributes
 
 ## Getting Started
 
@@ -51,19 +60,100 @@ The development server will start at `http://localhost:5173`.
 
 ## Testing
 
-This project includes a comprehensive test suite with 120+ tests covering:
+This project includes a comprehensive test suite with **120 tests** across **14 test files**, providing robust coverage for all major functionality:
 
-- **Component Testing** - All major UI components
-- **User Interactions** - Clicks, navigation, form submissions
-- **State Management** - Loading, error, and empty states
-- **Accessibility** - Proper structure and ARIA attributes
+### Test Coverage
+
+- **Overall Coverage**: 60.38%
+- **Component Coverage**: 91.65%
+- **Test Files**: 14 test files covering components, pages, and edge cases
+
+### What's Tested
+
+- **Component Testing** - All major UI components with visual and functional tests
+- **User Interactions** - Clicks, navigation, form submissions, and drag-and-drop
+- **State Management** - Loading states, error handling, and empty states
+- **Accessibility** - Proper ARIA attributes and semantic structure
+- **Responsive Design** - Mobile and desktop layouts
 - **Integration** - Component interactions and data flow
+- **Edge Cases** - Empty states, error conditions, and boundary cases
 
-Tests are written using:
+### Test Files
 
-- [Vitest](https://vitest.dev/) - Fast test runner
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) - Component testing utilities
-- [jsdom](https://github.com/jsdom/jsdom) - DOM environment for testing
+```
+src/test/
+├── components/
+│   ├── CurrentWeatherCard.test.tsx
+│   ├── DragDropDashboard.test.tsx
+│   ├── DragDropDashboard.empty.test.tsx
+│   ├── Layout.test.tsx
+│   ├── LocationDialog.test.tsx
+│   ├── TemperatureChartCard.test.tsx
+│   ├── WeatherAlertsCard.test.tsx
+│   ├── WeatherAlertsCard.empty.test.tsx
+│   ├── WeatherDashboard.test.tsx
+│   ├── WeatherForecastCard.test.tsx
+│   ├── WeatherMetricsCard.test.tsx
+│   └── WindCompassCard.test.tsx
+├── pages/
+│   ├── DashboardPage.test.tsx
+│   └── ProfilePage.test.tsx
+├── setup.ts
+└── utils.tsx
+```
+
+### Testing Technologies
+
+- **[Vitest](https://vitest.dev/)** - Fast, modern test runner with native TypeScript support
+- **[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)** - Simple and complete testing utilities
+- **[jsdom](https://github.com/jsdom/jsdom)** - DOM environment for testing
+- **[@testing-library/user-event](https://testing-library.com/docs/user-event/intro/)** - User interaction simulation
+- **[@testing-library/jest-dom](https://testing-library.com/docs/ecosystem-jest-dom/)** - Custom DOM element matchers
+
+### Running Tests
+
+```bash
+# Run all tests in watch mode
+yarn test
+
+# Run tests once
+yarn test:run
+
+# Run tests with coverage report
+yarn test:coverage
+
+# Open test UI for interactive testing
+yarn test:ui
+```
+
+## Architecture
+
+### Tech Stack
+
+- **React 19.1.0** - UI library with latest features
+- **TypeScript 5.8.3** - Type-safe JavaScript
+- **Vite 7.0.4** - Fast build tool and dev server
+- **Material-UI 7.2.0** - React component library
+- **React Query 5.83.0** - Data fetching and caching
+- **React Router 7.6.3** - Client-side routing
+- **@dnd-kit** - Drag and drop functionality
+
+### Project Structure
+
+```
+src/
+├── components/        # Reusable UI components
+├── contexts/         # React context providers
+├── hooks/           # Custom hooks
+├── pages/           # Page components
+├── services/        # API and external services
+├── test/            # Test files and utilities
+├── types/           # TypeScript type definitions
+├── utils/           # Utility functions
+└── theme/           # Material-UI theme configuration
+```
+
+## Vite Configuration
 
 Currently, two official plugins are available:
 

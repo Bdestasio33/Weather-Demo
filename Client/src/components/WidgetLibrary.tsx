@@ -277,6 +277,7 @@ const styles = {
   },
   widgetGridSmallMobile: {
     gap: "var(--spacing-xs)",
+    paddingBottom: 10, // Add bottom padding for small mobile scrolling
     "&::-webkit-scrollbar": {
       width: "3px",
     },
@@ -288,7 +289,7 @@ const styles = {
     border: "1px solid var(--color-border-light)",
     borderRadius: "var(--radius-lg)",
     transition: "var(--transition-card)",
-    minHeight: "120px", // Ensure minimum height for desktop
+    minHeight: "170px", // Consistent minimum height for all devices
     "&:hover": {
       borderColor: "var(--color-border-accent)",
       transform: "translateY(-2px)",
@@ -299,7 +300,7 @@ const styles = {
     },
   },
   widgetCardMobile: {
-    minHeight: "140px", // Larger minimum height for mobile
+    // Remove mobile-specific overrides, inherit from base
     "&:hover": {
       transform: "none", // Disable hover transform on mobile
     },
@@ -310,26 +311,24 @@ const styles = {
   },
   widgetCardContent: {
     p: "var(--spacing-lg)",
-    height: "100%",
+    minHeight: "170px", // Consistent minimum height for all devices
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "center", // Center content vertically for all devices
   },
   widgetCardContentMobile: {
-    p: "var(--spacing-md)",
-    minHeight: "120px", // Ensure content has minimum height
+    p: "var(--spacing-md)", // Slightly smaller padding for mobile
+    // Inherit all other properties from base
   },
   widgetContainer: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     gap: "var(--spacing-sm)",
-    height: "100%",
-    justifyContent: "center",
+    minHeight: "100px", // Consistent minimum height for all devices
   },
   widgetContainerMobile: {
-    gap: "var(--spacing-xs)",
-    minHeight: "100px", // Ensure container has minimum height
+    // Remove mobile-specific overrides, inherit from base
   },
   widgetIconContainer: {
     display: "flex",
@@ -375,7 +374,7 @@ const styles = {
   },
   widgetDescriptionMobile: {
     fontSize: "var(--font-size-xs)",
-    mb: "var(--spacing-xs)",
+    mb: "0", // Remove bottom margin to fix spacing
     lineHeight: "1.3", // Better line height for readability
   },
   widgetSizeChip: {
@@ -383,17 +382,19 @@ const styles = {
     color: "var(--color-text-primary)",
     fontSize: "var(--font-size-xs)",
     fontWeight: "var(--font-weight-medium)",
+    mt: "var(--spacing-xs)", // Add top margin for better spacing
   },
   widgetSizeChipMobile: {
     fontSize: "var(--font-size-xs)",
     height: "22px", // Slightly taller for mobile
+    mt: "var(--spacing-xs)", // Add top margin for mobile
     "& .MuiChip-label": {
       fontSize: "var(--font-size-xs)",
       padding: "0 8px", // More padding for mobile
     },
   },
   widgetCardSmallMobile: {
-    minHeight: "160px", // Even larger minimum height for very small screens
+    // Remove small mobile-specific overrides, inherit from base
     "&:hover": {
       transform: "none",
     },
@@ -403,12 +404,11 @@ const styles = {
     },
   },
   widgetCardContentSmallMobile: {
-    p: "var(--spacing-sm)",
-    minHeight: "140px", // Ensure content has good minimum height
+    p: "var(--spacing-sm)", // Smaller padding for very small screens
+    // Inherit all other properties from base
   },
   widgetContainerSmallMobile: {
-    gap: "var(--spacing-xs)",
-    minHeight: "120px", // Ensure container has good minimum height
+    // Remove small mobile-specific overrides, inherit from base
   },
   widgetIconContainerSmallMobile: {
     mb: "var(--spacing-xs)",
@@ -426,12 +426,13 @@ const styles = {
   },
   widgetDescriptionSmallMobile: {
     fontSize: "var(--font-size-xs)",
-    mb: "var(--spacing-xs)",
+    mb: "0", // Remove bottom margin to fix spacing
     lineHeight: "1.3",
   },
   widgetSizeChipSmallMobile: {
     fontSize: "var(--font-size-xs)",
     height: "24px", // Taller for small mobile
+    mt: "var(--spacing-xs)", // Add top margin for small mobile
     "& .MuiChip-label": {
       fontSize: "var(--font-size-xs)",
       padding: "0 10px", // More padding for small mobile

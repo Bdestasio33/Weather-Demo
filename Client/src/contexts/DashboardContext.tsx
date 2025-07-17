@@ -183,6 +183,26 @@ export function DashboardProvider({ children }: DashboardProviderProps) {
         return;
       }
 
+      // Check if widget of this type already exists
+      const existingWidget = state.currentLayout.widgets.find(
+        (widget) => widget.type === type
+      );
+
+      if (existingWidget) {
+        toast.warning(
+          `${config.title} widget already exists on the dashboard`,
+          {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          }
+        );
+        return; // Prevent adding duplicate widget
+      }
+
       const newWidget: DashboardWidget = {
         id: generateWidgetId(type),
         type,

@@ -278,6 +278,7 @@ function WidgetGrid() {
 export default function DragDropDashboard() {
   const { state, actions } = useDashboard();
   const [activeItem, setActiveItem] = useState<DragItem | null>(null);
+  const [isAddingWidget, setIsAddingWidget] = useState(false); // Prevent duplicate additions
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -300,6 +301,7 @@ export default function DragDropDashboard() {
 
   const handleDragStart = (event: DragStartEvent) => {
     const { active } = event;
+    setIsAddingWidget(false); // Reset flag on drag start
 
     if (active.data.current?.type === "widget-config") {
       // Dragging from sidebar
@@ -328,12 +330,16 @@ export default function DragDropDashboard() {
     const { active, over } = event;
     setActiveItem(null);
 
-    if (!over) return;
+    if (!over) {
+      setIsAddingWidget(false);
+      return;
+    }
 
     // Only handle dropping widget if it's specifically over the drop zone or widget grid
     if (over.id === "dashboard-drop-zone" || over.id === "widget-grid") {
-      if (active.data.current?.type === "widget-config") {
-        // Adding new widget from sidebar
+      if (active.data.current?.type === "widget-config" && !isAddingWidget) {
+        // Adding new widget from sidebar - prevent duplicate additions
+        setIsAddingWidget(true);
         const widgetConfig = active.data.current.config;
         actions.addWidget(widgetConfig.type as WidgetType);
 
@@ -341,7 +347,12 @@ export default function DragDropDashboard() {
         if (isMobile && state.sidebarOpen) {
           actions.toggleSidebar();
         }
+
+        // Reset flag after a short delay
+        setTimeout(() => setIsAddingWidget(false), 100);
       }
+    } else {
+      setIsAddingWidget(false);
     }
     // If not dropped over a valid drop zone, don't add the widget
   };
@@ -392,15 +403,28 @@ export default function DragDropDashboard() {
             </Box>
           </SwipeableDrawer>
         ) : (
-          /* Desktop Sidebar as regular Drawer */
+          /* Desktop Sidebar as temporary overlay Drawer */
           <Drawer
-            variant="persistent"
+            variant="temporary"
             anchor="left"
             open={state.sidebarOpen}
+            onClose={handleSidebarToggle}
             sx={styles.desktopDrawer}
             data-testid="desktop-sidebar"
           >
             <Box sx={styles.drawerContent}>
+              <Box sx={styles.drawerHeader}>
+                <Typography variant="h6" sx={styles.drawerTitle}>
+                  Widget Library
+                </Typography>
+                <IconButton
+                  onClick={handleSidebarToggle}
+                  sx={styles.drawerCloseButton}
+                  data-testid="close-sidebar-button"
+                >
+                  <CloseIcon />
+                </IconButton>
+              </Box>
               <WidgetLibrary />
             </Box>
           </Drawer>
@@ -411,9 +435,7 @@ export default function DragDropDashboard() {
           sx={{
             ...styles.dashboardArea,
             ...(isMobile && styles.dashboardAreaMobile),
-            ...(state.sidebarOpen &&
-              !isMobile &&
-              styles.dashboardAreaWithSidebar),
+            // Remove sidebar margin - dashboard area stays full width
           }}
           data-testid="dashboard-area"
         >
@@ -801,15 +823,14 @@ const styles = {
     },
   },
   desktopDrawer: {
-    width: "var(--dashboard-sidebar-width)",
-    flexShrink: 0,
     "& .MuiDrawer-paper": {
       width: "var(--dashboard-sidebar-width)",
       boxSizing: "border-box",
-      borderRight: "1px solid var(--color-border-light)",
       background: "var(--color-bg-glass)",
       backdropFilter: "var(--backdrop-blur-lg)",
       height: "100%",
+      boxShadow: "var(--shadow-xl)",
+      zIndex: 1300, // Ensure it's above other content
     },
   },
   drawerContent: {
@@ -839,10 +860,7 @@ const styles = {
     width: "100%",
     padding: "var(--spacing-lg)",
   },
-  dashboardAreaWithSidebar: {
-    marginLeft: "var(--dashboard-sidebar-width)",
-    transition: "margin-left var(--transition-normal)",
-  },
+  // Remove dashboardAreaWithSidebar - no longer needed for overlay behavior
   dashboardHeaderMobile: {
     padding: "var(--spacing-lg)",
     marginBottom: "var(--spacing-2xl)",
